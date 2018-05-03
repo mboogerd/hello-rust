@@ -11,32 +11,38 @@ fn main() {
     
     println!("The secret number is: {}", secret_number);
 
-    println!("Please input your guess:");
+    loop {
+        println!("Please input your guess:");
 
-    // let is used for variables, by default immutable
-    // mut is used to explicitly mark them as mutable
-    // [Type]::[function] marks an `associated` (static) function
-    let mut guess = String::new();
+        // let is used for variables, by default immutable
+        // mut is used to explicitly mark them as mutable
+        // [Type]::[function] marks an `associated` (static) function
+        let mut guess = String::new();
 
-    // & indicates that an argument is a `reference` (immutable by default)
-    // reference variables can also be marked mutable
-    io::stdin().read_line(&mut guess)
-    // An instance of io::Result has an expect method that you can call.
-    // If this instance of io::Result is an Err value, expect will cause
-    // the program to crash and display the message that you passed as an
-    // argument to expect
-        .expect("Failed to read line");
+        // & indicates that an argument is a `reference` (immutable by default)
+        // reference variables can also be marked mutable
+        io::stdin().read_line(&mut guess)
+        // An instance of io::Result has an expect method that you can call.
+        // If this instance of io::Result is an Err value, expect will cause
+        // the program to crash and display the message that you passed as an
+        // argument to expect
+            .expect("Failed to read line");
 
-    let guess: u32 = guess.trim().parse()
-        .expect("Please type a u32 number!");
+        // Rust allows 'shadowing' a previous variable with a new one.
+        let guess: u32 = guess.trim().parse()
+            .expect("Please type a u32 number!");
 
-    // One can submit placeholders in strings, and supply the values
-    // separately
-    println!("You guessed: {}", guess);
+        // One can submit placeholders in strings, and supply the values
+        // separately
+        println!("You guessed: {}", guess);
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("Well done!")
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("Well done!");
+                break;
+            }
+        }
     }
 }
