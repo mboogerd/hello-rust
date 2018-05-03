@@ -1,0 +1,11 @@
+[package]
+name = "hello-rust"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+rand = "0.3.14"
+
+[[bin]]
+name = "hello-rust"
+path = "src/main.rs"
