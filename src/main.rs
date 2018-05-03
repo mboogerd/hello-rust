@@ -29,8 +29,10 @@ fn main() {
             .expect("Failed to read line");
 
         // Rust allows 'shadowing' a previous variable with a new one.
-        let guess: u32 = guess.trim().parse()
-            .expect("Please type a u32 number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         // One can submit placeholders in strings, and supply the values
         // separately
