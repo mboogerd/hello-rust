@@ -1,0 +1,10 @@
+[package]
+name = "ch17"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+
+[[bin]]
+name="object-oriented"
+path="src/traits.rs"

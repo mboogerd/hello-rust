@@ -1,11 +1,47 @@
-[package]
-name = "hello-rust"
-version = "0.1.0"
-authors = ["merlijn"]
+[workspace]
+members = [
+    # "ch07src",
+    # "ch08exercises",
+    # "adder",
+    # "add-one",
+    # "ch15"
+    # "ch16"
+    "ch17"
+]
+
+# [package]
+# name = "hello-rust"
+# version = "0.1.0"
+# authors = ["merlijn"]
 
 [dependencies]
 rand = "0.3.14"
 
-[[bin]]
-name = "hello-rust"
-path = "src/main.rs"
+[profile.release]
+panic = 'abort' # ends the program without cleaning up
+# aids in minimization of the size of the binary
+
+# [lib]
+# name = "communicator"
+# path = "ch07src/lib.rs"
+
+# [lib]
+# name = "ch08lab"
+# path = "ch08exercises/exercises.rs"
+
+# [lib]
+# name = "ch12cli"
+# path = "ch12-cli/lib.rs"
+
+# [[bin]]
+# name = "hello-rust"
+# path = "ch12-cli/app.rs"
+
+
+# [lib]
+# name = "hellocrates"
+# path = "ch14/lib.rs"
+
+# [[bin]]
+# name = "hellocrates"
+# path = "ch14/app.rs"

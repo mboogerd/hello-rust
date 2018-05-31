@@ -1,0 +1,13 @@
+[package]
+name = "ch16"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+
+
+[[bin]]
+name="ch15"
+# path="src/threads.rs"
+# path="src/messaging.rs"
+path="src/shared-state.rs"

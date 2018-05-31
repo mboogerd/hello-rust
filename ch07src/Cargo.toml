@@ -1,0 +1,10 @@
+[package]
+name = "ch07src"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+
+[lib]
+name = "ch07src"
+path = "lib.rs"

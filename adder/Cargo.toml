@@ -1,0 +1,11 @@
+[package]
+name = "adder"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+add-one = { path = "../add-one" }
+
+[lib]
+name = "adder"
+path = "src/main.rs"

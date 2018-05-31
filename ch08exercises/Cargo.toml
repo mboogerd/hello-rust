@@ -1,0 +1,11 @@
+[package]
+name = "ch08exercises"
+version = "0.1.0"
+authors = ["merlijn"]
+
+[dependencies]
+
+
+[lib]
+name = "ch08lab"
+path = "exercises.rs"
