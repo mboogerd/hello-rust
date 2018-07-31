@@ -48,6 +48,20 @@ fn main() {
     // type in the function or method definition
     let x = MyBox::new(String::from("Rust"));
     hello(&x);
+
+    // deref coercion also kicks in when assigning
+    let _y: &str = &x;
+
+    // Macros require some extra care though, as this won't compile
+    // println!("Hello, {}!", &x);
+
+    // More precisely, deref coercion takes place in three cases:
+    // 1) From &T to &U when T: Deref<Target=U>
+    // 2) From &mut T to &mut U when T: DerefMut<Target=U>
+    // 3) From &mut T to &U when T: Deref<Target=U>
+    // (3) because a mutable reference is allowed to be
+    // treated as an immutable one when borrowed, but not
+    // the opposite.
 }
 
 fn hello(name: &str) {
